@@ -1,0 +1,171 @@
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input,
+select,
+button {
+    display: block;
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto; 
+    margin-right: auto; 
+    align-items: center;
+}
+
+
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: rgb(255, 255, 255);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: rgba(0, 0, 0, 0.568);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 100%;
+    min-width: 50%;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    color: #f7f7f7;
+    text-align: center;
+    width: 1000px;
+    min-height: 465px;
+    max-height: 465px;
+    overflow: overlay;
+    display: flex; 
+    flex-direction: column; 
+   
+}
+.form-container.empleado-form{
+    align-items: center;
+}
+.form-container h1,
+.form-container p {
+    margin: 0 0 20px;
+}
+
+.form-container input[type="text"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+    align-items: center;
+}
+.los{
+    align-items: center; 
+}
+
+.form-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.form-container table {
+    font-family: Arial, sans-serif;
+    background: #555;
+    color: #000000;
+}
+
+.form-container button:hover {
+    background: #555;
+}
+
+.botones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-right: 25px;
+}
+
+.sitio {
+    padding: 8px;
+    border-radius: 30px;
+    border: transparent;
+    background-color: #31261ec4;
+    backdrop-filter: blur(3px);
+    filter: grayscale(0.6);
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform .2s;
+}
+
+.sitio:hover {
+    transform: scale(1.2);
+}
+
+.oculto {
+    display: none;
+}
+
+
+#registro, #asignacion {
+    text-align: center; /* Centra el texto y los elementos dentro del div */
+    margin: 0 auto; /* Centra horizontalmente los divs */
+    max-width: 600px; /* Ancho máximo para los divs, ajusta según sea necesario */
+   
+    
+    
+}
+
+/* Estilos específicos para el div de seguimiento */
+#Seguimiento {
+    max-width: 100%; /* Ocupa todo el ancho disponible */
+
+
+}
+.logo-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.logo-container::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('/imagen/logo.png'); /* Asegúrate de que la ruta sea correcta */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

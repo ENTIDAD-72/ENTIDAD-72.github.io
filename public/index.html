@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de tener un archivo CSS para los estilos -->
+    <title>Control de Aseo y Limpieza</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        function mostrarContenido(id) {
+            var secciones = document.getElementsByClassName('contenido');
+            for (var i = 0; i < secciones.length; i++) {
+                secciones[i].classList.remove('mostrar');
+                secciones[i].style.display = 'none'; // Oculta todas las secciones
+            }
+            var elemento = document.getElementById(id);
+            elemento.style.display = 'block'; // Asegúrate de que el elemento se muestra para que la animación se ejecute
+            setTimeout(function() {
+                elemento.classList.add('mostrar');
+            }, 10); // Añade una pequeña demora para asegurar que la animación se ejecute
+        }
+
+        // Selecciona el botón por su ID
+        var boton = document.getElementById("miBoton");
+        var contenido = document.getElementById("container");
+
+        // Agrega un evento "click" al botón
+        boton.addEventListener("click", function() {
+            // Agrega la clase "oculto" al contenido
+            contenido.classList.add("oculto2");
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-container"></div>
+        
+    </header>
+    <div class="botones">
+        <button onclick="mostrarContenido('registro')" class="sitio">➕</button>
+        <button onclick="mostrarContenido('asignacion')" class="sitio" id="despachoBtn">🤹🏼‍♀️</button>
+        <button onclick="mostrarContenido('Seguimiento')" class="sitio" id="ingresarBtn">📰</button>
+        
+    </div>
+
+    <div class="container">
+        <div class="form-container" id="container">
+            <h1>Control de Aseo y Limpieza</h1>
+            
+            <!-- Registro de empleados -->
+            <div id="registro" class="contenido oculto">
+                <h2>Registro De Empleado</h2>
+                <form id="empleado-form" class="empleado-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+            
+                    <label for="identificacion">Identificación:</label>
+                    <input type="text" id="identificacion" name="identificacion" required>
+            
+                    <label for="contrato">Contrato:</label>
+                    <input type="text" id="contrato" name="contrato" required>
+            
+                    <label for="jefe">Jefe de Contrato:</label>
+                    <input type="text" id="jefe" name="jefe" required>
+            
+                    <button type="submit">Agregar Empleado</button>
+                </form>
+            </div>
+
+            <!-- Asignación de tareas -->
+            <div id="asignacion" class="contenido oculto">
+                <h2>Asignación de Tareas</h2>
+                <form id="tarea-form">
+                    <label for="empleado-select">Empleado:</label>
+                    <select id="empleado-select"></select>
+            
+                    <label for="tarea">Tarea:</label>
+                    <input type="text" id="tarea" name="tarea" required>
+            
+                    <label for="ubicacion">Ubicación:</label>
+                    <select id="ubicacion" name="ubicacion" required>
+                        <option value="Oficina">Oficina</option>
+                        <option value="Pasillo">Pasillo</option>
+                        <option value="Baño">Baño</option>
+                        <option value="Comedor">Comedor</option>
+                    </select>
+            
+                    <label for="insumos">Insumos:</label>
+                    <input type="text" id="insumos" name="insumos" required>
+            
+                    <label for="descripcion">Descripción:</label>
+                    <input type="text" id="descripcion" name="descripcion" required>
+            
+                    <label for="turno">Turno:</label>
+                    <select id="turno" name="turno" required>
+                        <option value="Mañana">Mañana</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noche">Noche</option>
+                    </select>
+            
+                    <button type="submit">Asignar Tarea</button>
+                </form>
+            </div>
+
+            <!-- Seguimiento de tareas -->
+            <div id="Seguimiento" class="contenido oculto">
+                <h2>Seguimiento de Tareas</h2>
+                <table id="tareas-table">
+                    <thead>
+                        <tr>
+                            <th>Empleado</th>
+                            <th>Tarea</th>
+                            <th>Ubicación</th>
+                            <th>Insumos</th>
+                            <th>Descripción</th>
+                            <th>Turno</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            
+                <button type="button" onclick="guardarDatos()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Cierre del servidor -->
+    <script>
+        window.addEventListener('beforeunload', function(event) {
+            navigator.sendBeacon('/close-server');
+        });
+    </script>
+</body>
+</html>
